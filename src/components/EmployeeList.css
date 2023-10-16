@@ -1,0 +1,25 @@
+.employee-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* Adjust the gap as needed */
+    padding: 20px;
+  }
+
+  
+  /* Media Query for responsive design */
+  @media (max-width: 768px) {
+    .employee-list {
+      grid-template-columns: repeat(2, 1fr); /* Display two cards in a row on smaller screens */
+    }
+    .employee-card {
+      width: 100%; /* Make each card take up the full width */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .employee-list {
+      grid-template-columns: 1fr; /* Display one card in a row on even smaller screens */
+    }
+  }
+  
+  
