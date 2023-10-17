@@ -13,12 +13,12 @@ function AddEmployeeForm() {
     personalEmail: "",
     mobileNumber: "",
     postalAddress: "",
-    gender: 1,
+    gender: '',
     country: "3",
     city: "3",
     designation: 1,
     basicPay: 0,
-    needTransportation: null ,
+    needTransportation: true ,
     notes: 'https://tse3.mm.bing.net/th?id=OIP.DAuF8ksdA5Kjh7fLifDpnwHaHa&pid=Api&P=0&h=180',
     username: "",
     password: "",
@@ -74,6 +74,8 @@ function AddEmployeeForm() {
       errors.postalAddress = "Postal Address is required";
       formIsValid = false;
     }
+
+   
     // Add validation for other fields as needed
 
     setErrorMessages(errors);
@@ -106,13 +108,13 @@ function AddEmployeeForm() {
             personalEmail: "",
             mobileNumber: "",
             postalAddress: "",
-            gender: 1,
+            gender: '',
             country: "3",
             city: "3",
             designation: 1,
             basicPay: 0,
             needTransportation: true,
-            notes: null,
+            notes:  'https://tse3.mm.bing.net/th?id=OIP.DAuF8ksdA5Kjh7fLifDpnwHaHa&pid=Api&P=0&h=180',
             username: "",
             password: "",
           });
@@ -170,13 +172,15 @@ function AddEmployeeForm() {
             <span className="error">{errorMessages.dateOfBirth}</span>
           )}
         </div>
-        <div className="form-group">
+        <div className="form-group" required >
           <label>Gender:</label>
-          <select name="gender" value={formData.gender} onChange={handleChange}>
+          <select name="gender" value={formData.gender} onChange={handleChange}  required>
+          <option value='' >Select </option>
             <option value="1">Male</option>
             <option value="2">Female</option>
             <option value="3">Other</option>
           </select>
+          
         </div>
         <div>
           <label htmlFor="personalEmail">Personal Email:</label>
