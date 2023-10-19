@@ -14,9 +14,9 @@ function AddEmployeeForm() {
     mobileNumber: "",
     postalAddress: "",
     gender: '',
-    country: "3",
-    city: "3",
-    designation: 1,
+    country: "",
+    city: "",
+    designation: '',
     basicPay: 0,
     needTransportation: true ,
     notes: 'https://tse3.mm.bing.net/th?id=OIP.DAuF8ksdA5Kjh7fLifDpnwHaHa&pid=Api&P=0&h=180',
@@ -40,6 +40,9 @@ function AddEmployeeForm() {
     });
   };
 
+  const cancleHandler=()=>{
+    navigate('/employee')
+  }
   const validateForm = () => {
     const errors = {};
     let formIsValid = true;
@@ -109,9 +112,9 @@ function AddEmployeeForm() {
             mobileNumber: "",
             postalAddress: "",
             gender: '',
-            country: "3",
-            city: "3",
-            designation: 1,
+            country: "",
+            city: "",
+            designation: '',
             basicPay: 0,
             needTransportation: true,
             notes:  'https://tse3.mm.bing.net/th?id=OIP.DAuF8ksdA5Kjh7fLifDpnwHaHa&pid=Api&P=0&h=180',
@@ -208,6 +211,7 @@ function AddEmployeeForm() {
             <span className="error">{errorMessages.mobileNumber}</span>
           )}
         </div>
+        
         <div>
           <label htmlFor="postalAddress">Postal Address:</label>
           <input
@@ -220,6 +224,36 @@ function AddEmployeeForm() {
           {errorMessages.postalAddress && (
             <span className="error">{errorMessages.postalAddress}</span>
           )}
+        </div>
+        <div className="form-group"  >
+          <label>City:</label>
+          <select name="city" value={formData.city} onChange={handleChange}>
+          <option value='' >Select </option>
+            <option value="1">Mumbai</option>
+            <option value="2">Pune</option>
+            <option value="3">Kerala</option>
+          </select>
+          
+        </div>
+        <div className="form-group"  >
+          <label>Country:</label>
+          <select name="country" value={formData.country} onChange={handleChange}>
+          <option value='' >Select </option>
+            <option value="1">India</option>
+            <option value="2">USA</option>
+            <option value="3">NY</option>
+          </select>
+          
+        </div>
+        <div className="form-group"  >
+          <label>Designation:</label>
+          <select name="designation" value={formData.designation} onChange={handleChange}>
+          <option value='' >Select </option>
+            <option value="1">Software Engineer</option>
+            <option value="2">Project Manager</option>
+            <option value="3">Project Lead</option>
+          </select>
+          
         </div>
         <div className="form-group">
           <label>Basic Salary:</label>
@@ -243,7 +277,35 @@ function AddEmployeeForm() {
             onChange={handleChange}
           />
         </div>
+        <div>
+          <label htmlFor="userName">Username:</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            value={formData.username}
+            onChange={handleInputChange}
+            required
+          />
+          
+        </div>
+        <div>
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={formData.password}
+            onChange={handleInputChange}
+            required
+          />
+          
+        </div>
+        <div>
         <button type="submit">Save</button>
+        <button className="cancelBtn" onClick={cancleHandler} type="submit">Cancel</button>
+        </div>
+        
       </form>
     </div>
   );
